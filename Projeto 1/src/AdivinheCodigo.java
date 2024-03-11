@@ -2,27 +2,33 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class AdivinheCodigo {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
+        Random random = new Random(); // Inicializei os objetos random e scanner que serão usados futuramente no código;
 
-
-        int resposta = (random.nextInt(11) + 1);
-        int numeroRespondido;
-
+        String jogarNovamente; // declarei fora do loop a variável que irá recomeça-lo caso necessário 
         do {
-            System.out.println("Tente adivinhar o número");
-            numeroRespondido = scanner.nextInt();
+            int resposta = (random.nextInt(99) + 1);
+            int numeroRespondido; // Declarei a variável numeroRespondido que colherá a resposta do usuário e inicializei a variável resposta que sorteia um número aleatório de 1 a 100
 
-            if (numeroRespondido == resposta) {
-                System.out.println("Parabens você acertou!!!");
-            } else if (numeroRespondido < resposta) {
-                System.out.println("poxa não foi dessa vez, tente um numero um pouco maior");
-            } else if (numeroRespondido > resposta) {
-                System.out.println("poxa não foi dessa vez, tente um numero um pouco menor");
-            }
-        }while (resposta!=numeroRespondido);
+            do {
+                System.out.println("Tente adivinhar o número");
+                numeroRespondido = scanner.nextInt();
 
-        }
+                if (numeroRespondido == resposta) {
+                    System.out.println("Parabéns, você acertou!!!");
+                } else if (numeroRespondido < resposta) {
+                    System.out.println("Poxa, não foi dessa vez, tente um número um pouco maior");
+                } else if (numeroRespondido > resposta) {
+                    System.out.println("Poxa, não foi dessa vez, tente um número um pouco menor");
+                }
+            } while (resposta != numeroRespondido); // O loop continua até o usuário acertar
 
+            System.out.print("Você quer jogar novamente? (sim/não): "); // aqui definirá se o jogo continuará ou não
+             jogarNovamente = scanner.next();
+
+        } while (jogarNovamente.equalsIgnoreCase("sim"));
+
+        scanner.close(); // Fechei o scanner para evitar vazamentos de recursos
     }
+}
