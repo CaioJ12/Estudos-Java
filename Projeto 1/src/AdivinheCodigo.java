@@ -4,12 +4,12 @@ import java.util.Scanner;
 public class AdivinheCodigo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Random random = new Random(); // Inicializei os objetos random e scanner que serão usados futuramente no código;
+        Random random = new Random(); // Inicializa os objetos random e scanner que serão usados futuramente no código;
 
-        String jogarNovamente; // declarei fora do loop a variável que irá recomeça-lo caso necessário 
+        String jogarNovamente; // declara fora do loop a variável que irá recomeça-lo caso necessário
         do {
             int resposta = (random.nextInt(99) + 1);
-            int numeroRespondido; // Declarei a variável numeroRespondido que colherá a resposta do usuário e inicializei a variável resposta que sorteia um número aleatório de 1 a 100
+            int numeroRespondido; // Declara a variável numeroRespondido que colherá a resposta do usuário e inicializei a variável resposta que sorteia um número aleatório de 1 a 100
 
             do {
                 System.out.println("Tente adivinhar o número");
@@ -29,6 +29,6 @@ public class AdivinheCodigo {
 
         } while (jogarNovamente.equalsIgnoreCase("sim"));
 
-        scanner.close(); // Fechei o scanner para evitar vazamentos de recursos
+        scanner.close(); // Fecha o scanner para evitar vazamentos de recursos
     }
 }
